@@ -29,12 +29,12 @@ int main(int argc, char** argv)
     std::copy(move_group_interface_arm.getJointModelGroupNames().begin(),
             move_group_interface_arm.getJointModelGroupNames().end(), std::ostream_iterator<std::string>(std::cout, ", "));
 
-    moveit::planning_interface::MoveGroupInterface::Plan my_plan;
+    moveit::planning_interface::MoveGroupInterface::Plan my_plan_arm;
     
     // 1. Move to home position
     move_group_interface_arm.setJointValueTarget(move_group_interface_arm.getNamedTargetValues("home"));
     
-    bool success = (move_group_interface_arm.plan(my_plan) == moveit::planning_interface::MoveItErrorCode::SUCCESS);
+    bool success = (move_group_interface_arm.plan(my_plan_arm) == moveit::planning_interface::MoveItErrorCode::SUCCESS);
 
     ROS_INFO_NAMED("tutorial", "Visualizing plan 1 (pose goal) %s", success ? "" : "FAILED");
 
@@ -52,7 +52,7 @@ int main(int argc, char** argv)
     target_pose1.position.z = 0.2;
     move_group_interface_arm.setPoseTarget(target_pose1);
 
-    success = (move_group_interface_arm.plan(my_plan) == moveit::planning_interface::MoveItErrorCode::SUCCESS);
+    success = (move_group_interface_arm.plan(my_plan_arm) == moveit::planning_interface::MoveItErrorCode::SUCCESS);
 
     ROS_INFO_NAMED("tutorial", "Visualizing plan 1 (pose goal) %s", success ? "" : "FAILED");
 
@@ -94,7 +94,7 @@ int main(int argc, char** argv)
     target_pose1.position.x = target_pose1.position.x - 0.6;
     move_group_interface_arm.setPoseTarget(target_pose1);
 
-    success = (move_group_interface_arm.plan(my_plan) == moveit::planning_interface::MoveItErrorCode::SUCCESS);
+    success = (move_group_interface_arm.plan(my_plan_arm) == moveit::planning_interface::MoveItErrorCode::SUCCESS);
 
     ROS_INFO_NAMED("tutorial", "Visualizing plan 1 (pose goal) %s", success ? "" : "FAILED");
 
@@ -104,7 +104,7 @@ int main(int argc, char** argv)
     target_pose1.position.z = target_pose1.position.z - 0.14;
     move_group_interface_arm.setPoseTarget(target_pose1);
 
-    success = (move_group_interface_arm.plan(my_plan) == moveit::planning_interface::MoveItErrorCode::SUCCESS);
+    success = (move_group_interface_arm.plan(my_plan_arm) == moveit::planning_interface::MoveItErrorCode::SUCCESS);
 
     ROS_INFO_NAMED("tutorial", "Visualizing plan 1 (pose goal) %s", success ? "" : "FAILED");
 
