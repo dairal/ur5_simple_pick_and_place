@@ -74,7 +74,7 @@ int main(int argc, char** argv)
     target_pose1.position.z = target_pose1.position.z - 0.2;
     move_group_interface_arm.setPoseTarget(target_pose1);
 
-    success = (move_group_interface_arm.plan(my_plan) == moveit::planning_interface::MoveItErrorCode::SUCCESS);
+    success = (move_group_interface_arm.plan(my_plan_arm) == moveit::planning_interface::MoveItErrorCode::SUCCESS);
 
     ROS_INFO_NAMED("tutorial", "Visualizing plan 1 (pose goal) %s", success ? "" : "FAILED");
 
