@@ -50,8 +50,11 @@ add_executable(pick_and_place src/pick_and_place.cpp)
 target_link_libraries(pick_and_place ${catkin_LIBRARIES} ${Boost_LIBRARIES})
 add_executable(pick_and_place_collision src/pick_and_place_collision.cpp)
 target_link_libraries(pick_and_place_collision ${catkin_LIBRARIES} ${Boost_LIBRARIES})
+add_executable(pick_and_place_collision_depth_camera src/pick_and_place_collision_depth_camera.cpp)
+target_link_libraries(pick_and_place_collision_depth_camera ${catkin_LIBRARIES} ${Boost_LIBRARIES})
 
 #install(TARGETS pick_and_place DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 #install(TARGETS pick_and_place_collision DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+#install(TARGETS pick_and_place_collision_depth_camera DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 
 #install(DIRECTORY launch DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
